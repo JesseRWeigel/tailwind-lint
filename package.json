@@ -1,0 +1,30 @@
+{
+  "name": "tailwind-generated-lint",
+  "version": "0.1.0",
+  "description": "Find JSX classes missing from generated Tailwind CSS and flag dynamic class construction.",
+  "main": "index.js",
+  "bin": {
+    "tailwind-lint": "bin/tailwind-lint.js"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "index.js",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "verify": "node --test test/*.test.js && node bin/tailwind-lint.js --css test/fixtures/generated.css test/fixtures/clean.jsx && node test/verify-cli.js"
+  },
+  "keywords": [
+    "eslint",
+    "tailwind",
+    "lint",
+    "jsx"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  }
+}
