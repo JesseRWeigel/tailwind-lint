@@ -7,6 +7,15 @@ const { loadGeneratedClasses } = require("../src/core");
 const { analyzeSource } = require("../src/source");
 const packageJson = require("../package.json");
 
+// Relative paths are clickable in editors, so prefer them. But once a file sits outside the
+// working directory the relative form becomes six levels of "../", which is longer and less
+// readable than the absolute path it is standing in for.
+function displayPath(file) {
+  const rel = path.relative(process.cwd(), file);
+  if (!rel) return file;
+  return rel.startsWith('..' + path.sep + '..') ? file : rel;
+}
+
 function usage() {
   return [
     "Usage: tailwind-lint --css <generated.css> [options] <file-or-directory>...",
@@ -120,7 +129,7 @@ function main(argv) {
     const diagnostics = sourceFiles.flatMap((file) =>
       analyzeSource({
         source: fs.readFileSync(file, "utf8"),
-        filename: path.relative(process.cwd(), file) || file,
+        filename: displayPath(file),
         generatedClasses,
         ignore: options.ignore,
       }),
