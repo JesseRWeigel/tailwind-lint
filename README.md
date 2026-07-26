@@ -4,6 +4,8 @@ An ESLint rule plus standalone checker that cross-references every class string 
 
 Catalog task: `DEVT-012`. Part of [thousand](../../README.md).
 
+**[Read this on the web](https://jesserweigel.github.io/tailwind-lint/)**
+
 ## What this is
 
 `tailwind-lint` provides an ESLint rule and a standalone command that compare JSX
