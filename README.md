@@ -2,7 +2,7 @@
 
 An ESLint rule plus standalone checker that cross-references every class string in JSX against the classes Tailwind actually generated for the build, reporting typos (flex-colum), classes killed by content-glob misconfiguration, and dynamically constructed class names that Tailwind can never see.
 
-Catalog task: `DEVT-012`. Part of [thousand](../../README.md).
+Catalog task: `DEVT-012`. Part of [thousand](https://github.com/JesseRWeigel/722-things-to-build).
 
 **[Read this on the web](https://jesserweigel.github.io/tailwind-lint/)**
 
